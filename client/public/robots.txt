@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://taxbot.vn/sitemap.xml
+
+# Important pages
+Allow: /
+Allow: /ai-calculator
+Allow: /contact
+Allow: /registration
+Allow: /customer-login
+
+# Block admin and testing pages
+Disallow: /admin
+Disallow: /test
+Disallow: /debug
+Disallow: /submissions

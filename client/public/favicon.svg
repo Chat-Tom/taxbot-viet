@@ -1,0 +1,30 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with Vietnam flag red -->
+  <circle cx="16" cy="16" r="16" fill="#da020e"/>
+  
+  <!-- TaxBot Robot Head Design inspired by the attached logo -->
+  <!-- Main head shape -->
+  <rect x="6" y="8" width="20" height="16" rx="3" fill="#ffd700" stroke="#ffffff" stroke-width="0.5"/>
+  
+  <!-- Eyes -->
+  <circle cx="11" cy="14" r="2.5" fill="#da020e"/>
+  <circle cx="21" cy="14" r="2.5" fill="#da020e"/>
+  
+  <!-- Eye pupils -->
+  <circle cx="11" cy="14" r="1" fill="#ffffff"/>
+  <circle cx="21" cy="14" r="1" fill="#ffffff"/>
+  
+  <!-- Mouth/screen -->
+  <rect x="12" y="18" width="8" height="3" rx="1" fill="#da020e"/>
+  
+  <!-- Antennas -->
+  <line x1="10" y1="8" x2="10" y2="5" stroke="#ffd700" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="22" y1="8" x2="22" y2="5" stroke="#ffd700" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Antenna tips -->
+  <circle cx="10" cy="5" r="1" fill="#ffd700"/>
+  <circle cx="22" cy="5" r="1" fill="#ffd700"/>
+  
+  <!-- Small "T" for TaxBot -->
+  <text x="16" y="29" font-family="Arial, sans-serif" font-size="6" font-weight="bold" text-anchor="middle" fill="#ffd700">T</text>
+</svg>

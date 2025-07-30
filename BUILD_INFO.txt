@@ -1,0 +1,35 @@
+TaxBot Vietnam - Clean Production Package
+========================================
+
+Package: TaxBot-Vietnam-Clean
+Version: 1.0.0
+Build Date: Sun Jul  6 04:09:43 PM UTC 2025
+Build Type: Production Ready - App Store
+
+Directory Structure:
+├── client/          # React frontend
+├── server/          # Express.js backend  
+├── shared/          # Shared TypeScript types
+├── package.json     # Dependencies
+├── *.config.ts      # Configuration files
+├── Dockerfile       # Docker container
+├── docker-compose.yml # Docker compose
+├── *.service        # Systemd service
+└── DEPLOYMENT_GUIDE.md # Setup instructions
+
+Features:
+✅ AI-powered tax calculations
+✅ Progressive Web App (PWA)
+✅ Vietnamese tax law compliance
+✅ Admin and customer dashboards
+✅ Email notifications
+✅ Database integration
+✅ Security and authentication
+✅ Offline support
+
+Ready for deployment to:
+- Google Play Store
+- Apple App Store  
+- Web hosting platforms
+- Docker containers
+- Cloud services

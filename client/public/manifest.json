@@ -1,0 +1,96 @@
+{
+  "name": "TaxBot Việt - Tính Thuế Thông Minh",
+  "short_name": "TaxBot Việt",
+  "description": "Ứng dụng tính thuế chuyên nghiệp với AI cho doanh nghiệp và cá nhân Việt Nam. Tuân thủ 100% luật thuế 2025, hỗ trợ khai báo thuế tự động.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#da020e",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "id": "vn.taxbot.app",
+  "prefer_related_applications": false,
+  "categories": ["business", "finance", "productivity"],
+  "lang": "vi-VN",
+  "dir": "ltr",
+  "iarc_rating_id": "",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512", 
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-mobile-1.png",
+      "sizes": "320x640",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Trang chủ TaxBot Việt"
+    },
+    {
+      "src": "/screenshot-mobile-2.png", 
+      "sizes": "320x640",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Tính thuế với AI"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tính Thuế AI",
+      "short_name": "AI Tax",
+      "description": "Tính thuế thông minh với AI",
+      "url": "/ai-calculator",
+      "icons": [{ 
+        "src": "/icon-192.png", 
+        "sizes": "192x192",
+        "type": "image/png"
+      }]
+    },
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard", 
+      "description": "Quản lý tài khoản và thuế",
+      "url": "/customer-dashboard",
+      "icons": [{
+        "src": "/icon-192.png",
+        "sizes": "192x192", 
+        "type": "image/png"
+      }]
+    }
+  ],
+  "share_target": {
+    "action": "https://7dd3a7cf-ed13-4c79-95d8-772d1b1fd878.picard.prod.repl.run/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "files": [
+        {
+          "name": "tax_documents",
+          "accept": ["image/*", ".pdf", ".doc", ".docx"]
+        }
+      ]
+    }
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+taxbot",
+      "url": "/handle?data=%s"
+    }
+  ]
+}

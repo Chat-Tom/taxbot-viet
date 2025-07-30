@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi-VN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxBot Việt - Chế Độ Offline</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #da020e 0%, #ffffff 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        
+        .offline-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(218, 2, 14, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: #da020e;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        
+        h1 {
+            color: #da020e;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .offline-message {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .retry-btn {
+            background: #da020e;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin: 10px;
+        }
+        
+        .retry-btn:hover {
+            background: #b8020c;
+        }
+        
+        .features-list {
+            text-align: left;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .features-list h3 {
+            color: #da020e;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .features-list li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+        
+        .connection-status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        
+        .status-offline {
+            background: #fee;
+            color: #c53030;
+            border: 1px solid #feb2b2;
+        }
+        
+        .status-online {
+            background: #f0fff4;
+            color: #38a169;
+            border: 1px solid #9ae6b4;
+        }
+        
+        @media (max-width: 480px) {
+            .offline-container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .offline-message {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="logo">TB</div>
+        
+        <h1>TaxBot Việt</h1>
+        
+        <div class="offline-message">
+            <p><strong>Bạn đang offline!</strong></p>
+            <p>Không có kết nối internet. Một số tính năng có thể hoạt động hạn chế trong chế độ offline.</p>
+        </div>
+        
+        <div class="connection-status status-offline" id="connectionStatus">
+            🔴 Không có kết nối internet
+        </div>
+        
+        <button class="retry-btn" onclick="retryConnection()">
+            🔄 Thử lại kết nối
+        </button>
+        
+        <button class="retry-btn" onclick="goHome()">
+            🏠 Về trang chủ
+        </button>
+        
+        <div class="features-list">
+            <h3>Tính năng có sẵn offline:</h3>
+            <ul>
+                <li>✅ Xem trang đã lưu trong bộ nhớ cache</li>
+                <li>✅ Sử dụng máy tính thuế cơ bản (dữ liệu đã cache)</li>
+                <li>✅ Xem thông tin gói dịch vụ</li>
+                <li>❌ AI Tax Advisor (cần kết nối internet)</li>
+                <li>❌ Gửi form đăng ký (cần kết nối internet)</li>
+                <li>❌ Đồng bộ dữ liệu mới nhất</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Check connection status
+        function updateConnectionStatus() {
+            const statusEl = document.getElementById('connectionStatus');
+            
+            if (navigator.onLine) {
+                statusEl.textContent = '🟢 Đã kết nối internet';
+                statusEl.className = 'connection-status status-online';
+            } else {
+                statusEl.textContent = '🔴 Không có kết nối internet';
+                statusEl.className = 'connection-status status-offline';
+            }
+        }
+        
+        // Retry connection
+        function retryConnection() {
+            updateConnectionStatus();
+            
+            if (navigator.onLine) {
+                // Try to reload the page
+                window.location.reload();
+            } else {
+                alert('Vẫn chưa có kết nối internet. Vui lòng kiểm tra lại.');
+            }
+        }
+        
+        // Go to home page
+        function goHome() {
+            try {
+                window.location.href = '/';
+            } catch (error) {
+                // If navigation fails, show message
+                alert('Không thể chuyển trang. Vui lòng kiểm tra kết nối internet.');
+            }
+        }
+        
+        // Listen for connection changes
+        window.addEventListener('online', () => {
+            updateConnectionStatus();
+            setTimeout(() => {
+                if (confirm('Kết nối internet đã được khôi phục! Bạn có muốn reload trang không?')) {
+                    window.location.reload();
+                }
+            }, 1000);
+        });
+        
+        window.addEventListener('offline', updateConnectionStatus);
+        
+        // Initial status check
+        updateConnectionStatus();
+        
+        // Auto-retry every 30 seconds
+        setInterval(() => {
+            if (navigator.onLine) {
+                // Ping the server to check if it's really online
+                fetch('/api/health', { cache: 'no-cache' })
+                    .then(response => {
+                        if (response.ok) {
+                            window.location.reload();
+                        }
+                    })
+                    .catch(() => {
+                        // Still offline or server issues
+                        console.log('Server still not reachable');
+                    });
+            }
+        }, 30000);
+    </script>
+</body>
+</html>
